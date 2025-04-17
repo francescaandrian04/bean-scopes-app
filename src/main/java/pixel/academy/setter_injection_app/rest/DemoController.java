@@ -12,9 +12,12 @@ public class DemoController {
     private Chef myChef;
     // constructor injection
     @Autowired
-    public DemoController(@Qualifier("italianChef") Chef theChef) {
+    public DemoController(@Qualifier("italianChef") Chef theChef, @Qualifier("italianChef") Chef theSecondChef) {
         myChef = theChef;
+        secondChef = theSecondChef;
     }
+
+    private Chef secondChef;
 
 
     // setter injection
@@ -29,9 +32,9 @@ public class DemoController {
         return myChef.getDailyRecipe();
     }
 
-
-
-
-
+    @GetMapping("/check")
+    public String check() {
+        return "Comparing beans: myChef == secondChef, " + (myChef == secondChef);  // return or true or false
+    }
 
 }
