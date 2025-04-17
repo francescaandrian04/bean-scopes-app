@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-@Lazy
+//@Lazy     lazy initialization
 
 public class TurkishChef implements Chef {
 
